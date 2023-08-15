@@ -2,7 +2,13 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "react-native-mun-kit": ["./src/index"]
+      "react-native-mun-kit": ["./src/index"],
+      "assets/*": [
+        "example/assets/*"
+      ],
+      "src/*": [
+        "example/src/*"
+      ]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
@@ -23,6 +29,6 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
   }
 }

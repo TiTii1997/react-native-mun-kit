@@ -20,3 +20,5 @@ const MunKit = NativeModules.MunKit
 export function multiply(a: number, b: number): Promise<number> {
   return MunKit.multiply(a, b);
 }
+
+export * from './components';
