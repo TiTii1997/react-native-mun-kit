@@ -1,16 +1,40 @@
+import { Skeleton } from '@rneui/themed';
 import * as React from 'react';
 
-import { StyleSheet, View } from 'react-native';
-import { SvgIcon } from 'react-native-mun-kit';
+import {
+  StyleSheet,
+  View,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
+import { BasicInput, IconInput, SvgIcon } from 'react-native-mun-kit';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <SvgIcon
-        component={require('../assets/icons/icon.svg')}
-        solid={true}
-        fill="#FF0000"
-      />
+      <SafeAreaView />
+      <Text style={styles.title}>Input</Text>
+      <View>
+        <BasicInput placeholder="Basic" />
+        <IconInput
+          placeholder="Icon input"
+          rightIcon={
+            <TouchableOpacity>
+              <SvgIcon
+                component={require('../assets/icons/icon.svg')}
+                solid={true}
+                fill="#FF0000"
+              />
+            </TouchableOpacity>
+          }
+        />
+      </View>
+      <Text style={styles.title}>Skeleton</Text>
+      <View style={{ flexDirection: 'row' }}>
+        <Skeleton width={120} height={40} style={{ marginRight: 8 }} />
+        <Skeleton circle width={40} height={40} />
+      </View>
     </View>
   );
 }
@@ -18,12 +42,16 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 16,
   },
   box: {
     width: 60,
     height: 60,
     marginVertical: 20,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 8,
   },
 });
