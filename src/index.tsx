@@ -1,24 +1,26 @@
-import { NativeModules, Platform } from 'react-native';
+import { Platform } from 'react-native';
 
-const LINKING_ERROR =
-  `The package 'react-native-mun-kit' doesn't seem to be linked. Make sure: \n\n` +
-  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
-  '- You rebuilt the app after installing the package\n' +
-  '- You are not using Expo Go\n';
+export const IOS = Platform.OS === 'ios';
 
-const MunKit = NativeModules.MunKit
-  ? NativeModules.MunKit
-  : new Proxy(
-      {},
-      {
-        get() {
-          throw new Error(LINKING_ERROR);
-        },
-      }
-    );
+export const ANDROID = Platform.OS === 'android';
 
-export function multiply(a: number, b: number): Promise<number> {
-  return MunKit.multiply(a, b);
+export enum RadiusSize {
+  X = 5,
+  M = 10,
+  L = 12,
+  XL = 16,
+  XXL = 22,
+  XXXL = 40,
+}
+
+export enum IconSize {
+  SMALL = 16,
+  MEDIUM = 24,
+  LARGE = 32,
+  X_LARGE = 36,
+  XXX_LARGE = 40,
 }
 
 export * from './components';
+
+export * from './styles';

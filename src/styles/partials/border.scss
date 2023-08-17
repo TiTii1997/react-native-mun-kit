@@ -1,0 +1,17 @@
+@import "variables";
+
+@each $size in $radius {
+  .radius#{$size} {
+    border-radius: #{$size}px;
+  }
+
+  .radiusTop#{$size} {
+    border-top-left-radius: #{$size}px;
+    border-top-right-radius: #{$size}px;
+  }
+
+  .radiusBottom#{$size} {
+    border-bottom-left-radius: #{$size}px;
+    border-bottom-right-radius: #{$size}px;
+  }
+}

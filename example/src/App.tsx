@@ -8,7 +8,12 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from 'react-native';
-import { BasicInput, IconInput, SvgIcon } from 'react-native-mun-kit';
+import {
+  BasicInput,
+  IconInput,
+  SvgIcon,
+  atomicStyles,
+} from 'react-native-mun-kit';
 
 export default function App() {
   return (
@@ -31,7 +36,7 @@ export default function App() {
         />
       </View>
       <Text style={styles.title}>Skeleton</Text>
-      <View style={{ flexDirection: 'row' }}>
+      <View style={[atomicStyles.flexRow]}>
         <Skeleton width={120} height={40} style={{ marginRight: 8 }} />
         <Skeleton circle width={40} height={40} />
       </View>
